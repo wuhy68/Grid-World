@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Grid-World" default="run" basedir=".">
+  <!--//删除build目录和jar文件-->
+  <target name="clean">
+    <delete dir="build"/>
+  </target>
+  <!--//编译java文件-->
+  <target name="compile" depends="clean">
+    <mkdir dir="build/classes"/>
+    <javac srcdir="src/com/company" destdir="build/classes"/>
+  </target>
+  <!--//执行HelloWorld程序-->
+  <target name="run" depends="compile">
+    <java classname="com.company.HelloWorld">
+      <classpath>
+        <pathelement path="build/classes"/>
+      </classpath>
+    </java>
+  </target>
+  <!--//打包程序为jar文件-->
+  <target name="jar">
+    <mkdir dir="build/jar"/>
+    <jar destfile="build/jar/HelloWorld.jar" basedir="build/classes">
+      <manifest>
+        <attribute name="Main-class" value="com.company.HelloWorld"/>
+      </manifest>
+    </jar>
+  </target>
+  <!--//运行jar任务生成的jar文件-->
+  <target name="runjar" depends="jar">
+    <java jar="build/jar/HelloWorld.jar" fork="true"/>
+  </target>
+</project>
