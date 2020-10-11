@@ -1,10 +1,10 @@
 package com.company;
 
 public class HelloWorld {
-    private String str;
+    String str;
     public void sayHelloWorld() {
 	   str = "Hello world";
-	   System.out.print("Hello World!");
+	   System.out.println("Hello World!");
     }
     public String getStr() {
 	    return str;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<project name="Calculator" default="run" basedir=".">
+<project name="Grid-World" default="run" basedir=".">
 
   <property name="src" value="src"/>
   <property name="bin" value="bin"/>
@@ -18,7 +18,7 @@
   </target>
   
   <target name="run" depends="compile">
-    <java classname="com.company.Calculator">
+    <java classname="com.company.HelloWorld">
       <classpath>
         <pathelement path="${class}"/>
       </classpath>
@@ -29,13 +29,13 @@
     <mkdir dir="${jar}"/>
     <jar destfile="${jar}/HelloWorld.jar" basedir="${class}">
       <manifest>
-        <attribute name="Main-class" value="com.company.Calculator"/>
+        <attribute name="Main-class" value="com.company.HelloWorld"/>
       </manifest>
     </jar>
   </target>
   
   <target name="runjar" depends="jar">
-    <java jar="${jar}/Calculator.jar" fork="true"/>
+    <java jar="${jar}/HelloWorld.jar" fork="true"/>
   </target>
 
 </project>
