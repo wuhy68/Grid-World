@@ -22,10 +22,8 @@ public class Calculator extends JFrame{
 	num2 = new JTextField("2");
         num1.setFont(new Font("宋体", Font.BOLD, 60));
 	num1.setHorizontalAlignment(JTextField.CENTER);
-	num1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         num2.setFont(new Font("宋体", Font.BOLD, 60));
 	num2.setHorizontalAlignment(JTextField.CENTER);
-	num2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	
         result = new JLabel("", JLabel.CENTER);	
 	result.setFont(new Font("宋体", Font.BOLD, 60));
@@ -48,12 +46,6 @@ public class Calculator extends JFrame{
 	mul.setFont(new Font("宋体", Font.BOLD, 60));		
 	div.setFont(new Font("宋体", Font.BOLD, 60));
 	ok.setFont(new Font("宋体", Font.BOLD, 60));
-
-	add.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-	sub.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-	mul.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-	div.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-	ok.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
 	calculator = new JPanel();
 	calculator.setLayout(new GridLayout(2,5));
