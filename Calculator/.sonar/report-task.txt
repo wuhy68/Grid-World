@@ -1,5 +1,0 @@
-projectKey=Grid-World-Stage1
-serverUrl=http://localhost:9000
-dashboardUrl=http://localhost:9000/dashboard/index/Grid-World-Stage1
-ceTaskId=AXURjaR8fd9Zom9eRohE
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AXURjaR8fd9Zom9eRohE
