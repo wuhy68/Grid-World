@@ -14,27 +14,29 @@ public class Calculator extends JFrame{
 	JLabel result, operator, equal;
 	JTextField num1, num2;
 	JButton add, sub, mul, div, ok;
+
+	int fontsize = 60;
 	
 	setBounds(200, 200, 900, 400);		
 	setTitle("Easy Carculator");			
 
 	num1 = new JTextField("12");
 	num2 = new JTextField("2");
-        num1.setFont(new Font("宋体", Font.BOLD, 60));
+        num1.setFont(new Font("宋体", Font.BOLD, fontsize));
 	num1.setHorizontalAlignment(JTextField.CENTER);
 	num1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        num2.setFont(new Font("宋体", Font.BOLD, 60));
+        num2.setFont(new Font("宋体", Font.BOLD, fontsize));
 	num2.setHorizontalAlignment(JTextField.CENTER);
 	num2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	
         result = new JLabel("", JLabel.CENTER);	
-	result.setFont(new Font("宋体", Font.BOLD, 60));
+	result.setFont(new Font("宋体", Font.BOLD, fontsize));
 	result.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	operator = new JLabel("", JLabel.CENTER);
-        operator.setFont(new Font("宋体", Font.BOLD, 60));
+        operator.setFont(new Font("宋体", Font.BOLD, fontsize));
 	operator.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	equal = new JLabel("=", JLabel.CENTER);
-	equal.setFont(new Font("宋体", Font.BOLD, 60));
+	equal.setFont(new Font("宋体", Font.BOLD, fontsize));
 	equal.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
 	add = new JButton("+");
@@ -43,11 +45,11 @@ public class Calculator extends JFrame{
 	div = new JButton("/");
 	ok = new JButton("OK");
 
-	add.setFont(new Font("宋体", Font.BOLD, 60));
-	sub.setFont(new Font("宋体", Font.BOLD, 60));
-	mul.setFont(new Font("宋体", Font.BOLD, 60));		
-	div.setFont(new Font("宋体", Font.BOLD, 60));
-	ok.setFont(new Font("宋体", Font.BOLD, 60));
+	add.setFont(new Font("宋体", Font.BOLD, fontsize));
+	sub.setFont(new Font("宋体", Font.BOLD, fontsize));
+	mul.setFont(new Font("宋体", Font.BOLD, fontsize));		
+	div.setFont(new Font("宋体", Font.BOLD, fontsize));
+	ok.setFont(new Font("宋体", Font.BOLD, fontsize));
 
 	add.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	sub.setBorder(BorderFactory.createLineBorder(Color.BLACK));
