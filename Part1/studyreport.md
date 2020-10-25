@@ -99,10 +99,45 @@ export PATH=${JAVA_HOME}/bin:$PATH
 ```
 运行如下命令完成环境变量的配置
 ```bash
+source ~/.profile 
+source ~/.bashrc
 ```
 
 ### 编译运行
+    
+#### 编译命令
 
+javac [-d] [-o] [-verbose] [-classpath][-sourcepath]
+
+1. -d, 指定生成的.class文件存放目录，一般省略则默认放在java源文件同一目录下
+
+2. -o, 这个选项告诉javac优化内联的static,final以及privite成员函数所产生的码。
+
+3. -verbose，此选项告知java显示出有关被编译的源文件和任何被调用类库的信息。如-verbose:class能看到各种加载的信息，-verbose:gc 是garbagecollection 的信息
+
+4. -classpath，设定要用到的类路径，可以是目录，jar文件，zip文件（里面都是class文件），值得注意的是，此classpath中的内容是会覆盖掉环境变量CLASSPATH里面的设定。也可以省略，省略则默认使用环境变量$CLASSPATH路径。所以一般classpath的设定都是：当前目录加环境变量CLASSPATH设置目录，如javac -classpath .:$CLASSPATH abc.java java基本类一般都在JDK环境变量$CLASSPATH中指定好路径了自己需要用到的第三方类一般都放在文件当前目录下，用.指定路径即可。若自己需要添加一些类可以在.:$CLASSPATH后面添加“：类的具体路径”。
+
+5. -sourcepath， 设定要编译的java文件路径，可以是目录，jar文件，zip文件（里面都是java文件）。若编译的是jar包中的主类文件abc.java时，一般编译整个包javac edu.test.jar或者包文件夹javac ./edu/test。一般当java文件中有多个需要编译时，可以逐一列出，也可以将文件名列在一个文件中，名称间用空格或者回车行来进行分隔，然后在命令行中使用该列表名，名字前冠以@字符。
+
+说明
+
+- 一般对于只有一个出口主函数main，其他java文件是以内联类的形式被主函数调用的多个java文件组成的工程来说，编译时只需要对出口主函数main所在java文件编译即可，工程中的其他java文件会自动关联编译。
+
+- 对于程序中调用到了第三方类或者package的情况，则一般先需要在程序文件中加入import第三方类或者jar包.*  如 import edu.test.abc 引用jar包edu.test下的abc.java，如果直接引用文件夹的话，则是edu/test文件夹下的abc.java文件。为稳妥，一般都引用整个包内文件import edu.test.*。（jar包名对应文件夹路径，将某个路径文件夹下的所有java文件进行打包即为jar包，引用时可以直接引用文件夹）编译时需要将jar包路径或者文件夹根目录，如edu的路径加入到classpath中。一般常把jar包或者根文件夹拷贝到当前目录下，指定classpath为.，编译器自动会从当前目录开始寻找。
+
+#### 运行
+
+java [-classpath] [-sourcepath]
+
+1. -classpath和编译时一致，指定运行时要搜索的类路径。需要注意的是，由于所要执行的类也是要搜索的类的一部分，所以一定要把这个类的路径也放到classpath设置里，故在要执行的类的路径里执行java命令时，一定要加上.表示当前目录也搜索。
+
+2. -sourcepath 指需要运行的目标文件名（不要后缀名），如编译javac a.java则运行java a。若运行的是jar包中的主类文件时需要指出包路径并要在class名前带上完整的包名，如java edu,test.abc。且该包的根目录(edu所在文件夹路径)需要包含在classpath中。
+
+说明：
+
+- 文件搜索时，系统只会向下，从指定目录向其子目录搜索，不会溯源向其父祖目录搜索。
+
+- 运行时，classpath应同时包含执行的目录和调用类的目录，一般两者放在同一根目录下，运行时在根目录下运行。不然会出现错误找不到运行的main函数。如调用的类文件./com/bao/ws/h.class，执行文件为./com/bao/bs/a.class，classpath应包含.路径
 
 ## Ant
 Ant是一种基于Java的打包工具，Ant脚本采用XML格式编写，默认的文件名为build.xml
